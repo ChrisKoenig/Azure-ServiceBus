@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ServiceBus.Cloud" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="1" osVersion="*" schemaVersion="2012-05.1.7">
+  <Role name="TopicWorkerRoleOne">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="TopicWorkerRoleTwo">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="WorkerRoleWithSBQueue">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

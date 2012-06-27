@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "ServiceBus.Cloud", "ServiceBus.Cloud\ServiceBus.Cloud.ccproj", "{C5342F02-3A9F-45FB-BA3D-EEDC86CC7A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkerRoleWithSBQueue", "WorkerRoleWithSBQueue\WorkerRoleWithSBQueue.csproj", "{15B3E0D2-6217-493A-A690-158C497F5318}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBus.QClient", "ServiceBus.QClient\ServiceBus.QClient.csproj", "{78318B22-4A6F-4293-8421-A46AB3CD70EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopicWorkerRoleOne", "TopicWorkerRoleOne\TopicWorkerRoleOne.csproj", "{C3B73DC3-5774-4AB1-AEE6-31ACA6DF7A86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopicWorkerRoleTwo", "TopicWorkerRoleTwo\TopicWorkerRoleTwo.csproj", "{B6D7ADB3-DE79-4D6C-84C3-CC05952242E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceBus.TClient", "ServiceBus.TClient\ServiceBus.TClient.csproj", "{0A94D302-5321-40A3-B672-DDBD2E51B328}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A94D302-5321-40A3-B672-DDBD2E51B328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A94D302-5321-40A3-B672-DDBD2E51B328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A94D302-5321-40A3-B672-DDBD2E51B328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A94D302-5321-40A3-B672-DDBD2E51B328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B3E0D2-6217-493A-A690-158C497F5318}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78318B22-4A6F-4293-8421-A46AB3CD70EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78318B22-4A6F-4293-8421-A46AB3CD70EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78318B22-4A6F-4293-8421-A46AB3CD70EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78318B22-4A6F-4293-8421-A46AB3CD70EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6D7ADB3-DE79-4D6C-84C3-CC05952242E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6D7ADB3-DE79-4D6C-84C3-CC05952242E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6D7ADB3-DE79-4D6C-84C3-CC05952242E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6D7ADB3-DE79-4D6C-84C3-CC05952242E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3B73DC3-5774-4AB1-AEE6-31ACA6DF7A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3B73DC3-5774-4AB1-AEE6-31ACA6DF7A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3B73DC3-5774-4AB1-AEE6-31ACA6DF7A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3B73DC3-5774-4AB1-AEE6-31ACA6DF7A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5342F02-3A9F-45FB-BA3D-EEDC86CC7A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5342F02-3A9F-45FB-BA3D-EEDC86CC7A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5342F02-3A9F-45FB-BA3D-EEDC86CC7A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5342F02-3A9F-45FB-BA3D-EEDC86CC7A28}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

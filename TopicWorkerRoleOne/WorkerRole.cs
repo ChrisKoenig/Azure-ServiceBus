@@ -78,6 +78,7 @@ namespace TopicWorkerRoleOne
                 namespaceManager.CreateSubscription(TopicName, TopicName);
 
             Client = SubscriptionClient.CreateFromConnectionString(connectionString, TopicName, TopicName);
+            
             IsStopped = false;
             return base.OnStart();
         }

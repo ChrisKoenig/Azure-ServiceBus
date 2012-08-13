@@ -8,14 +8,13 @@ using Microsoft.ServiceBus.Messaging;
 
 namespace ServiceBus.TClient
 {
-    class Program
+    internal class Program
     {
-        const string _queueName = "TopicProcessingQueue";
-        const string _topicOneName = "TopicOne";
-        const string _topicTwoName = "TopicTwo"; 
-        const string _connectionString = "Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=";
+        private const string _topicOneName = "TopicOne";
+        private const string _topicTwoName = "TopicTwo";
+        private const string _connectionString = "Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             if (args.Contains("send"))
             {
@@ -37,7 +36,7 @@ namespace ServiceBus.TClient
                 clientOne.Close();
                 clientTwo.Close();
             }
-            
+
             if (args.Contains("show"))
             {
                 BrokeredMessage message;
@@ -50,11 +49,10 @@ namespace ServiceBus.TClient
                 {
                     var sequenceNumber = message.SequenceNumber;
                     var messageBody = message.GetBody<string>();
-                    Console.WriteLine(String.Format("Processing TopicOne: {0} = {1}", sequenceNumber, messageBody));
+                    Console.WriteLine(String.Format("Displaying TopicOne: {0} = {1}", sequenceNumber, messageBody));
                     message = clientOne.Receive(TimeSpan.FromSeconds(5));
                 }
                 clientOne.Close();
-
 
                 Console.WriteLine("Trying TopicTwo Messages...");
                 message = clientTwo.Receive(TimeSpan.FromSeconds(5));
@@ -62,14 +60,11 @@ namespace ServiceBus.TClient
                 {
                     var sequenceNumber = message.SequenceNumber;
                     var messageBody = message.GetBody<string>();
-                    Console.WriteLine(String.Format("Processing TopicTwo: {0} = {1}", sequenceNumber, messageBody));
+                    Console.WriteLine(String.Format("Displaying TopicTwo: {0} = {1}", sequenceNumber, messageBody));
                     message = clientTwo.Receive(TimeSpan.FromSeconds(5));
                 }
                 clientTwo.Close();
-
             }
-
-           
         }
     }
 }

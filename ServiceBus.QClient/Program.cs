@@ -28,8 +28,8 @@ namespace ServiceBus.QClient
                     client.Send(message);
                 }
             }
-            
-            if (args.Contains("show"))
+
+            if (args.Contains("show") || args.Length == 0)
             {
                 var message = client.Receive();
                 while (message != null)

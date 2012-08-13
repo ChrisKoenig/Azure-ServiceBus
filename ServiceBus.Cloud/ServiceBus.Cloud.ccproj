@@ -37,6 +37,22 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RuleWorkerRoleHigh\RuleWorkerRoleHigh.csproj">
+      <Name>RuleWorkerRoleHigh</Name>
+      <Project>{982b589e-9da7-4fbc-80b2-ab11bb47e43f}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>RuleWorkerRoleHigh</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
+    <ProjectReference Include="..\RuleWorkerRoleLow\RuleWorkerRoleLow.csproj">
+      <Name>RuleWorkerRoleLow</Name>
+      <Project>{8eed79ce-4444-4b92-b29c-f8476abc901a}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>RuleWorkerRoleLow</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
     <ProjectReference Include="..\TopicWorkerRoleOne\TopicWorkerRoleOne.csproj">
       <Name>TopicWorkerRoleOne</Name>
       <Project>{c3b73dc3-5774-4ab1-aee6-31aca6df7a86}</Project>

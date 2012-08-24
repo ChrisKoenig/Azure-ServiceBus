@@ -4,18 +4,17 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.ServiceBus;
+using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
 
 namespace TopicWorkerRoleTwo
 {
     public class WorkerRole : RoleEntryPoint
     {
-        const string QueueName = "TopicProcessingQueue";
         const string TopicName = "TopicTwo";
         string connectionString = CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
@@ -68,15 +67,30 @@ namespace TopicWorkerRoleTwo
             // Create the queue if it does not exist already
             var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-            if (!namespaceManager.QueueExists(QueueName))
-                namespaceManager.CreateQueue(QueueName);
+            //var retryStrategy = new Incremental(5, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2));
+            //var retryPolicy = new RetryPolicy<ServiceBusTransientErrorDetectionStrategy>(retryStrategy);
 
-            if (!namespaceManager.TopicExists(TopicName))
-                namespaceManager.CreateTopic(TopicName);
+            try
+            {
+                if (!namespaceManager.TopicExists(TopicName))
+                    namespaceManager.CreateTopic(TopicName);
+            }
+            catch (MessagingEntityAlreadyExistsException)
+            {
+                // eat and/or log this one as it's usually caused by a race condition
+            }
 
-            if (!namespaceManager.SubscriptionExists(TopicName, TopicName))
-                namespaceManager.CreateSubscription(TopicName, TopicName);
+            try
+            {
+                if (!namespaceManager.SubscriptionExists(TopicName, TopicName))
+                    namespaceManager.CreateSubscription(TopicName, TopicName);
+            }
+            catch (MessagingEntityAlreadyExistsException)
+            {
+                // eat and/or log this one as it's usually caused by a race condition
+            }
 
+            // Initialize the connection to Service Bus Queue
             Client = SubscriptionClient.CreateFromConnectionString(connectionString, TopicName, TopicName);
             IsStopped = false;
             return base.OnStart();

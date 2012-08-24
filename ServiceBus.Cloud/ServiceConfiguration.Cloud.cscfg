@@ -4,35 +4,35 @@
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=" />
     </ConfigurationSettings>
   </Role>
   <Role name="TopicWorkerRoleTwo">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=" />
     </ConfigurationSettings>
   </Role>
   <Role name="WorkerRoleWithSBQueue">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=" />
     </ConfigurationSettings>
   </Role>
   <Role name="RuleWorkerRoleHigh">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=" />
     </ConfigurationSettings>
   </Role>
   <Role name="RuleWorkerRoleLow">
     <Instances count="1" />
     <ConfigurationSettings>
       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
-      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=" />
+      <Setting name="Microsoft.ServiceBus.ConnectionString" value="Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=" />
     </ConfigurationSettings>
   </Role>
 </ServiceConfiguration>

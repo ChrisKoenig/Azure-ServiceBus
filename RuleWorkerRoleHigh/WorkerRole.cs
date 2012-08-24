@@ -7,9 +7,9 @@ using System.Threading;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;
-using Microsoft.WindowsAzure.Diagnostics;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.WindowsAzure.StorageClient;
+using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.ServiceBus;
+using Microsoft.Practices.TransientFaultHandling;
 using SharedObjects;
 
 namespace RuleWorkerRoleHigh
@@ -69,11 +69,28 @@ namespace RuleWorkerRoleHigh
             // Create the queue if it does not exist already
             var namespaceManager = NamespaceManager.CreateFromConnectionString(connectionString);
 
-            if (!namespaceManager.TopicExists(TopicName))
-                namespaceManager.CreateTopic(TopicName);
+            //var retryStrategy = new Incremental(5, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(2));
+            //var retryPolicy = new RetryPolicy<ServiceBusTransientErrorDetectionStrategy>(retryStrategy);
 
-            if (!namespaceManager.SubscriptionExists(TopicName, SubscriptionName))
-                namespaceManager.CreateSubscription(TopicName, SubscriptionName, new SqlFilter("Age > 60"));
+            try
+            {
+                if (!namespaceManager.TopicExists(TopicName))
+                    namespaceManager.CreateTopic(TopicName);
+            }
+            catch (MessagingEntityAlreadyExistsException)
+            {
+                // eat and/or log this one as it's usually caused by a race condition
+            }
+
+            try
+            {
+                if (!namespaceManager.SubscriptionExists(TopicName, SubscriptionName))
+                    namespaceManager.CreateSubscription(TopicName, SubscriptionName, new SqlFilter("Age >= 60"));
+            }
+            catch (MessagingEntityAlreadyExistsException)
+            {
+                // eat and/or log this one as it's usually caused by a race condition
+            }
 
             // Initialize the connection to Service Bus Queue
             Client = SubscriptionClient.CreateFromConnectionString(connectionString, TopicName, SubscriptionName);

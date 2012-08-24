@@ -12,7 +12,7 @@ namespace ServiceBus.TClient
     {
         private const string _topicOneName = "TopicOne";
         private const string _topicTwoName = "TopicTwo";
-        private const string _connectionString = "Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=";
+        private const string _connectionString = "Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=";
 
         private static void Main(string[] args)
         {

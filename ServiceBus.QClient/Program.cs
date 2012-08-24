@@ -11,11 +11,10 @@ namespace ServiceBus.QClient
     class Program
     {
         const string _queueName = "ProcessingQueue";
-        const string _connectionString = "Endpoint=sb://chriskoenig.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=SvEwFJZmK+W4V1nRJDY1mAQNN7tZsdRByAq53BmGWS0=";
+        const string _connectionString = "Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=";
         static void Main(string[] args)
         {
-
-            var namespaceManager = NamespaceManager.CreateFromConnectionString(_connectionString);
+            //var namespaceManager = NamespaceManager.CreateFromConnectionString(_connectionString);
             var client = QueueClient.CreateFromConnectionString(_connectionString, _queueName);
 
             if (args.Contains("send"))

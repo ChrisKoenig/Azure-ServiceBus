@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 
@@ -10,33 +8,31 @@ namespace ServiceBus.QClient
 {
     class Program
     {
-        const string _queueName = "ProcessingQueue";
-        const string _connectionString = "Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=";
+        private const string _queueName = "ProcessingQueue";
+        private const string _connectionString = "Endpoint=sb://ckdemo.servicebus.windows.net;SharedSecretIssuer=owner;SharedSecretValue=sygYuji+u55NZLPBJg/LhZ+Eur13I1LanEjrxhcTMqI=";
+        
         static void Main(string[] args)
         {
-            //var namespaceManager = NamespaceManager.CreateFromConnectionString(_connectionString);
-            var client = QueueClient.CreateFromConnectionString(_connectionString, _queueName);
 
-            if (args.Contains("send"))
+            try
             {
-
-                for (int i = 0; i < 5; i++)
-                {
-                    var messageBody = String.Format("Message {0} | {1}", i, DateTime.Now.ToShortTimeString());
-                    var message = new BrokeredMessage(messageBody);
-                    client.Send(message);
-                }
+                var namespaceManager = NamespaceManager.CreateFromConnectionString(_connectionString);
+                if (!namespaceManager.QueueExists(_queueName))
+                    namespaceManager.CreateQueue(_queueName);
+            }
+            catch (MessagingEntityAlreadyExistsException)
+            {
+                // this is caused by race conditions, so just ignore it
             }
 
-            if (args.Contains("show") || args.Length == 0)
+            var client = QueueClient.CreateFromConnectionString(_connectionString, _queueName);
+
+            for (int i = 0; i < 5; i++)
             {
-                var message = client.Receive();
-                while (message != null)
-                {
-                    var body = message.GetBody<string>();
-                    Console.WriteLine(message.SequenceNumber + " = " + body);
-                    message = client.Receive();
-                }
+                var messageBody = String.Format("Message {0} >>> {1}", i, DateTime.Now.ToShortTimeString());
+                Console.WriteLine("Sending " + messageBody);
+                var message = new BrokeredMessage(messageBody);
+                client.Send(message);
             }
 
             client.Close();

@@ -53,22 +53,6 @@
       <RoleName>RuleWorkerRoleLow</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
-    <ProjectReference Include="..\TopicWorkerRoleOne\TopicWorkerRoleOne.csproj">
-      <Name>TopicWorkerRoleOne</Name>
-      <Project>{c3b73dc3-5774-4ab1-aee6-31aca6df7a86}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>TopicWorkerRoleOne</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
-    <ProjectReference Include="..\TopicWorkerRoleTwo\TopicWorkerRoleTwo.csproj">
-      <Name>TopicWorkerRoleTwo</Name>
-      <Project>{b6d7adb3-de79-4d6c-84c3-cc05952242e4}</Project>
-      <Private>True</Private>
-      <RoleType>Worker</RoleType>
-      <RoleName>TopicWorkerRoleTwo</RoleName>
-      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
-    </ProjectReference>
     <ProjectReference Include="..\WorkerRoleWithSBQueue\WorkerRoleWithSBQueue.csproj">
       <Name>WorkerRoleWithSBQueue</Name>
       <Project>{15b3e0d2-6217-493a-a690-158c497f5318}</Project>

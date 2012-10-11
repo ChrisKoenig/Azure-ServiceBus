@@ -4,8 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Threading;
-using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.ServiceBus;
-using Microsoft.Practices.TransientFaultHandling;
 using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;

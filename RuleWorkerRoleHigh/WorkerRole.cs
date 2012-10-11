@@ -8,8 +8,6 @@ using Microsoft.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Microsoft.WindowsAzure;
 using Microsoft.WindowsAzure.ServiceRuntime;
-using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.TransientFaultHandling.ServiceBus;
-using Microsoft.Practices.TransientFaultHandling;
 using SharedObjects;
 
 namespace RuleWorkerRoleHigh
